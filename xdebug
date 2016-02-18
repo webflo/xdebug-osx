@@ -44,10 +44,9 @@ if [ $? -eq 0 ]; then
             fi
 
             echo ""
-            echo "Xdebug has been $STATUS, restarting apache (it might ask for your password)"
+            echo "Xdebug has been $STATUS, restarting php-fpm (it might ask for your password)"
 
-            sudo pkill -9 httpd
-            sudo apachectl -k restart > /dev/null 2>&1
+            sudo lunchy restart dev.php2-fpm.$php_version_dot > /dev/null 2>&1
         else
             echo ""
             echo "Usage: xdebug [ on | off ]"
